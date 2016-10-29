@@ -1,0 +1,11 @@
+<!-- aop설정을 통한 자동적인 Proxy객체 생성 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<aop:config></aop:config>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>	
+	</bean>
+	
+	<!--   @Transactional 애노테이션을 이용한 트랜잭션 관리 -->
+	<tx:annotation-driven/>	
+<context:component-scan base-package="org.board.aop"></context:component-scan>
